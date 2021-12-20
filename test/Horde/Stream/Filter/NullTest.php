@@ -10,13 +10,14 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_NullTest extends Horde_Test_Case
+class Horde_Stream_Filter_NullTest extends \PHPUnit\Framework\TestCase
 {
     public $fp;
     public $testdata;
 
-    public function setup()
+    public function setUp(): void
     {
+	parent::setUp();
         stream_filter_register('horde_null', 'Horde_Stream_Filter_Null');
 
         $this->testdata = "abcde\0fghij";

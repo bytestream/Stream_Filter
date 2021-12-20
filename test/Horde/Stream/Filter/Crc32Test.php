@@ -10,13 +10,14 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_Crc32Test extends Horde_Test_Case
+class Horde_Stream_Filter_Crc32Test extends \PHPUnit\Framework\TestCase
 {
     public $fp;
     public $testdata;
 
-    public function setup()
+    public function setUp(): void
     {
+	parent::setUp();
         stream_filter_register('horde_crc32', 'Horde_Stream_Filter_Crc32');
 
         $this->testdata = str_repeat("0123456789ABCDE", 1000);

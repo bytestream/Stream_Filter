@@ -10,19 +10,21 @@
  * @package    Stream_Filter
  * @subpackage UnitTests
  */
-class Horde_Stream_Filter_EolTest extends Horde_Test_Case
+class Horde_Stream_Filter_EolTest extends \PHPUnit\Framework\TestCase
 {
     public $fp;
 
-    public function setup()
+    public function setUp(): void
     {
+	parent::setUp();
         stream_filter_register('horde_eol', 'Horde_Stream_Filter_Eol');
         $this->fp = fopen('php://temp', 'r+');
         fwrite($this->fp, "A\r\nB\rC\nD\r\n\r\nE\r\rF\n\nG\r\n\n\r\nH\r\n\r\r\nI");
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
+	parent::tearDown();
         fclose($this->fp);
     }
 
