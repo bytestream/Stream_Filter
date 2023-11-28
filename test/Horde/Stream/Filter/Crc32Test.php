@@ -34,7 +34,7 @@ class Horde_Stream_Filter_Crc32Test extends \PHPUnit\Framework\TestCase
         rewind($this->fp);
         while (fread($this->fp, 1024)) {}
 
-        $this->assertObjectHasAttribute('crc32', $params);
+        $this->assertObjectHasProperty('crc32', $params);
 
         $this->assertEquals(
             crc32($this->testdata),
